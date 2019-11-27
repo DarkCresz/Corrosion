@@ -2,10 +2,13 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const http = require('http');
 const port = process.env.PORT || 3000;
+http.createServer().listen(port);
 
 const token = process.env.TOKEN;
 
 const PREFIX = '>';
+
+const owner = 650550902650044426
 
 var version = '1.0.1';
 
@@ -79,5 +82,9 @@ bot.on('message', message => {
         }
     }
 })
+
+bot.on('error', err => {
+    console.log(err);
+});
 
 bot.login(token);
